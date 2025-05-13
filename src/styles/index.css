@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400&family=Markazi+Text:wght@500&display=swap');
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,6 +13,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Primary Colors */
+  --color-primary-green: #495e57;
+  --color-primary-yellow: #f4ce14;
+
+  /* Secondary Colors */
+  --color-secondary-orange: #ee9972;
+  --color-secondary-peach: #fbdabb;
+
+  /* Highlight Colors */
+  --color-highlight-light: #edefee;
+  --color-highlight-dark: #333333;
+
+  /* Rounded Corners */
+  --border-radius: 16px;
 }
 
 a {
@@ -28,11 +45,12 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: 'Karla', Arial, sans-serif;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Markazi Text', serif;
+  font-weight: 500;
 }
 
 button {
@@ -65,4 +83,10 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.lead-text {
+  font-size: 18pt;
+  font-weight: 500;
+  color: var(--color-highlight-dark);
 }
