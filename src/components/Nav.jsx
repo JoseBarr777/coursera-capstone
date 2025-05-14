@@ -1,5 +1,6 @@
+// the top-level navigation of the website, sometimes referred to as the navbar
 const Nav = () => {
-    return(<p>This is the Navigation component.</p>);
+    return(<p>Navbar</p>);
 };
 
 export default Nav;
