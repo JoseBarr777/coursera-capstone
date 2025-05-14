@@ -1,9 +1,9 @@
 //the component for the homepage
 
-function Homepage() {
+function HomePage() {
   return (
     <div>Homepage</div>
   );
 };
 
-export default Homepage;
+export default HomePage;

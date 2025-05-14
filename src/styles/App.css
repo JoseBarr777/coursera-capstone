@@ -43,10 +43,14 @@
 
 /* Main grid layout for the app */
 .app-container {
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
   min-height: 100vh;
-  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
 }
 
 /* Header: logo left, nav right */

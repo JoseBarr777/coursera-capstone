@@ -1,12 +1,15 @@
 import './styles/App.css';
-import { Routes, Route } from 'react-router';
-import LandingPage from './components/LandingPage';
+
+import {Routes, Route} from 'react-router';
+
+import HomePage from './Pages/HomePage';
+import BookingPage from './Pages/BookingPage';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<LandingPage />} />
-      {/* Add more routes here as needed */}
+      <Route path="/" element={<HomePage/>} />
+      <Route path="/book-reservation" element={<BookingPage/>} />
     </Routes>
   );
 }

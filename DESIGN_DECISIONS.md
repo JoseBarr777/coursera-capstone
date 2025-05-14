@@ -6,8 +6,20 @@
 - **Reason:** Chosen due to starting a React project from scratch using Vite, and declarative mode fits well with this setup.
 - **Implementation:**
   - Routes are defined in `App.jsx` rather than `main.jsx` to keep the entry point focused on bootstrapping and providers.
-  - This allows for a persistent layout (e.g., header, nav, footer) to wrap all routes, which is a common pattern in real-world applications.
-  - This structure is more maintainable and scalable as the app grows.
+  - The `BrowserRouter` and `RootLayout` are placed in `main.jsx` as global wrappers around the application.
+  - This structure provides a persistent layout (header, navigation, footer) across all routes.
+  - Navigation between routes uses React Router's navigation components (`Link`, `NavLink`) instead of traditional anchor tags to maintain SPA functionality.
+
+## Project Structure
+- **Pages vs Components:**
+  - Pages are placed in a dedicated `Pages` directory rather than in the components folder
+  - This creates a clear separation between page-level components and reusable UI components
+- **Root Components:**
+  - Root-level components (like `RootLayout`) are organized in a `components/root` directory
+  - This isolates global layout components from feature-specific components
+- **Organizational Philosophy:**
+  - Components are organized by feature/concern rather than by type
+  - This approach improves maintainability as the application grows
 
 ---
 
