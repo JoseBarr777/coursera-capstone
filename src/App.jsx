@@ -1,19 +1,14 @@
 import './styles/App.css';
-import Header from './components/Header';
-import Nav from './components/Nav';
-import Main from './components/Main';
-import Footer from './components/Footer';
+import { Routes, Route } from 'react-router';
+import LandingPage from './components/LandingPage';
 
 function App() {
-
   return (
-    <>
-      <Header/>
-      <Nav/>
-      <Main/>
-      <Footer/>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      {/* Add more routes here as needed */}
+    </Routes>
+  );
 }
 
-export default App
+export default App;
