@@ -9,7 +9,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<HomePage/>} />
-      <Route path="/book-reservation" element={<BookingPage/>} />
+      <Route path="/about" element={<HomePage/>}/>
+      <Route path="/menu" element={<HomePage/>}/>
+      <Route path="/reservations" element={<BookingPage/>} />
+      <Route path="/order-online" element={<HomePage/>} />
+      <Route path="/login" element={<HomePage/>} />
     </Routes>
   );
 }
