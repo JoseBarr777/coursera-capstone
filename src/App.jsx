@@ -1,9 +1,9 @@
-import './styles/App.css';
+import '@styles/App.css';
 
 import {Routes, Route} from 'react-router';
 
-import HomePage from './Pages/HomePage';
-import BookingPage from './Pages/BookingPage';
+import HomePage from '@pages/HomePage';
+import BookingPage from '@pages/BookingPage';
 
 function App() {
   return (
