@@ -2,7 +2,7 @@
 
 function Specials() {
   return (
-    <div>Specials</div>
+    <div>Specials / Highlights</div>
   );
 };
 

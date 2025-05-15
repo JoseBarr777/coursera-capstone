@@ -6,7 +6,7 @@
 
 const CallToAction = () => {
     return(
-        <p>Call to action / hero/ jumbotron</p>
+        <p>Call to action/ jumbotron/ Hero Section</p>
     );
 };
 

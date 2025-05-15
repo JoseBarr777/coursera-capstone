@@ -1,8 +1,16 @@
-//the component for the homepage
+import CallToAction from '@components/CallToAction';
+import Specials from '@components/Specials';
+import CustomersSay from '@components/CustomersSay';
+import About from '@components/About';
 
 function HomePage() {
   return (
-    <div>Homepage</div>
+    <>
+    <CallToAction />
+    <Specials />
+    <CustomersSay />
+    <About />
+    </>
   );
 };
 

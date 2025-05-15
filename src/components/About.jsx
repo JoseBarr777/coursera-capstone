@@ -2,7 +2,7 @@
 
 function Chicago() {
   return (
-    <div>Chicago</div>
+    <div>Chicago / About</div>
   );
 };
 
