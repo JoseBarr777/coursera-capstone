@@ -15,6 +15,7 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/styles'),
       '@pages': path.resolve(__dirname, './src/pages'),
       '@assets': path.resolve(__dirname, './src/assets'),
+      '@mock-data': path.resolve(__dirname, './src/mock-data')
     }
   }
 })

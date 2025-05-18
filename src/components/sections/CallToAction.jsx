@@ -5,6 +5,7 @@
  * **************************************************************************/
 import {Link} from 'react-router';
 import '@styles/CallToAction.css';
+import '@styles/Button.css';
 
 const CallToAction = () => {
     return(
@@ -17,7 +18,7 @@ const CallToAction = () => {
                     felis sed finibus pretium, nisi leo sagittis orci, non cursus sem neque id purus.
                     Proin neque lorem, rhoncus sed magna a, egestas dapibus lectus.
                 </p>
-                <Link to="/reservations" className="cta-button" role="button">Reserve a Table</Link>
+                <Link to="/reservations" className="btn-primary" role="button">Reserve a Table</Link>
             </div>
             <div className="hero-image">
                 <img

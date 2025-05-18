@@ -46,36 +46,17 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.cta-button {
-  background-color: var(--color-primary-yellow);
-  color: var(--color-highlight-dark);
-  padding: 0.8rem 1.5rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-  border-radius: var(--border-radius);
-  text-decoration: none;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #e5c113;
-  transform: scale(1.05);
-}
-
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
     padding: 2rem;
   }
-  
   .hero-content {
     max-width: 100%;
     padding-right: 0;
     margin-bottom: 2rem;
     text-align: center;
   }
-  
   .hero-image {
     width: 100%;
   }

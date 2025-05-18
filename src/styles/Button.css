@@ -1,0 +1,58 @@
+/* Primary buttons - full yellow background */
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary-yellow);
+  color: var(--color-highlight-dark);
+  text-decoration: none;
+  font-weight:bold;
+  cursor: pointer;
+  border-radius: 16px;
+  border: none;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #e5b937;
+  color: var(--color-primary-green);
+}
+
+/* Secondary buttons - outlined style */
+.btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  color: var(--color-primary-green);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 16px;
+  border: 2px solid var(--color-primary-green);
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-green);
+  color: white;
+}
+
+/* Text button - no background or border */
+.btn-text {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  color: var(--color-highlight-dark);
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.btn-text:hover {
+  color: var(--color-primary-green);
+  text-decoration: underline;
+}
