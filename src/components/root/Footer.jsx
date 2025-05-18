@@ -9,7 +9,6 @@ const Footer = () => {
                 <div className="footer-logo">
                     <img src={Logo} alt="Little Lemon" />
                 </div>
-                
                 <div className="footer-nav">
                     <h3>Doormat Navigation</h3>
                     <ul>
@@ -21,7 +20,6 @@ const Footer = () => {
                         <li><Link to="/login">Login</Link></li>
                     </ul>
                 </div>
-                
                 <div className="footer-contact">
                     <h3>Contact</h3>
                     <address>
@@ -31,7 +29,6 @@ const Footer = () => {
                         <p><a href="mailto:info@littlelemon.com">info@littlelemon.com</a></p>
                     </address>
                 </div>
-                
                 <div className="footer-social">
                     <h3>Social Media Links</h3>
                     <ul>
