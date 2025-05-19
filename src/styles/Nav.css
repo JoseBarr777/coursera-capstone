@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  padding: 0.5rem 3rem;
+  padding: 0.3rem 3rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -30,7 +30,7 @@
 }
 
 .logo {
-  height: 45px;
+  height: 35px;
   width: auto;
 }
 
@@ -86,13 +86,11 @@
 /* Responsive styles */
 @media (max-width: 768px) {
   .main-nav {
-    padding: 0.5rem 1rem;
+    padding: 0.3rem 1rem;
   }
-  
   .mobile-menu-button {
     display: block;
   }
-  
   .nav-links {
     position: absolute;
     top: 100%;
@@ -105,15 +103,12 @@
     display: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
   .nav-links.open {
     display: flex;
   }
-  
   .nav-links li {
     width: 100%;
   }
-  
   .nav-links a {
     display: block;
     padding: 10px;
