@@ -12,36 +12,38 @@ const Nav = () => {
     };
 
     return(
-        <nav className="main-nav">
-            <div className="nav-logo">
-                <Link to="/">
-                    <img src={Logo} alt="Little Lemon" className="logo" />
-                </Link>
-            </div>
-            <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
-                <li>
-                    <NavLink to="/" end>Home</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/about">About</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/menu">Menu</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/reservations">Reservations</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/order-online">Order online</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/login">Login</NavLink>
-                </li>
-            </ul>
-            <button className="mobile-menu-button" onClick={toggleMenu}>
-                <img src={HamburgerIcon} alt="Menu" className="hamburger-icon" />
-            </button>
-        </nav>
+        <div className="nav-bg">
+            <nav className="main-nav">
+                <div className="nav-logo">
+                    <Link to="/">
+                        <img src={Logo} alt="Little Lemon" className="logo" />
+                    </Link>
+                </div>
+                <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
+                    <li>
+                        <NavLink to="/" end>Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/about">About</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/menu">Menu</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/reservations">Reservations</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/order-online">Order online</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/login">Login</NavLink>
+                    </li>
+                </ul>
+                <button className="mobile-menu-button" onClick={toggleMenu}>
+                    <img src={HamburgerIcon} alt="Menu" className="hamburger-icon" />
+                </button>
+            </nav>
+        </div>
     );
 };
 

@@ -6,20 +6,26 @@
 }
 
 /* Main navigation styles */
-.main-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  padding: 0.3rem 3rem;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+.nav-bg {
+  width: 100%;
+  background: white;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  width: 100%;
   z-index: 1000;
   border-bottom: 1px solid #e0e0e0;
+}
+
+.main-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.3rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  width: 100%;
 }
 
 /* Logo styles */
@@ -84,6 +90,12 @@
 }
 
 /* Responsive styles */
+@media (max-width: 992px) {
+  .main-nav {
+    padding: 0.3rem 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .main-nav {
     padding: 0.3rem 1rem;
