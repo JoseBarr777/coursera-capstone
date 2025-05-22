@@ -3,19 +3,32 @@ import '@styles/Button.css';
 
 import {useState} from 'react';
 
-const BookingForm = () => {
+const BookingForm = ({availableTimes, dispatch}) => {
+// Add defensive default in case availableTimes is undefined
+const availableTimesList = Array.isArray(availableTimes) ? availableTimes : [];
+
 const [date, setDate] = useState('2025-05-19');
-const [time, setTime] = useState('17:00');
+const [time, setTime] = useState(availableTimesList.length > 0 ? availableTimesList[0] : '');
 const [guestCount, setGuestCount] = useState(1);
 const [occasion, setOccasion] = useState('Not selected');
 
 const handleSubmit = (e) => {
-    e.preventDefault(); //used to prevent defaul form submission behavior (reloads page and sends to some url)
+    e.preventDefault();
     alert('Form has been submitted.');
 
     setDate('2025-05-19');
-    setTime('17:00');
+    setTime(availableTimesList.length > 0 ? availableTimesList[0] : '');
     setGuestCount(1);
+    setOccasion('Not selected');
+}
+
+const handleDateChange = (e) => {
+    setDate(e.target.value);
+    dispatch({type: 'UPDATE_TIMES', date: e.target.value});
+}
+
+const handleTimeChange = (e) => {
+    setTime(e.target.value);
 }
 
     return(
@@ -26,20 +39,17 @@ const handleSubmit = (e) => {
                 type="date"
                 id="res-date"
                 value={date}
-                onChange={(e) => setDate(e.target.value)}
+                onChange={handleDateChange}
                 />
                 <label htmlFor="res-time">Choose time:</label>
                 <select
                 id="res-time"
                 value={time}
-                onChange = {(e) => setTime(e.target.value)}
+                onChange={handleTimeChange}
                 >
-                    <option value="17:00">17:00</option>
-                    <option value="18:00">18:00</option>
-                    <option value="19:00">19:00</option>
-                    <option value="20:00">20:00</option>
-                    <option value="21:00">21:00</option>
-                    <option value="22:00">22:00</option>
+                    {availableTimesList.map((time) => (
+                        <option key={time}>{time}</option>
+                    ))}
                 </select>
                 <label htmlFor="guests">Number of guests</label>
                 <input
@@ -55,6 +65,7 @@ const handleSubmit = (e) => {
                 value={occasion}
                 onChange={(e) => setOccasion(e.target.value)}
                 >
+                    <option value="Not selected">Not selected</option>
                     <option value="birthday">Birthday</option>
                     <option value="anniversary">Anniversary</option>
                 </select>

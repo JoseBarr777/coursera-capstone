@@ -1,10 +1,11 @@
 //the component for the table reservations page
 import BookingForm from "@components/BookingForm";
 
-function BookingPage() {
+function BookingPage({availableTimes, dispatch}) {
+
  return(
   <>
-  <BookingForm />
+  <BookingForm availableTimes={availableTimes} dispatch={dispatch}/>
   </>
  )
 };
