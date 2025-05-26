@@ -1,35 +1,66 @@
 import '@styles/BookingForm.css';
 import '@styles/Button.css';
 
-import {useState} from 'react';
+import { fetchAPI, submitAPI } from '@api/api';
+import { formatDateForInput, parseDateFromInput } from '@utils/dateUtils';
+import { useState, useEffect } from 'react';
+
 
 const BookingForm = ({availableTimes, dispatch}) => {
-// Add defensive default in case availableTimes is undefined
-const availableTimesList = Array.isArray(availableTimes) ? availableTimes : [];
 
-const [date, setDate] = useState('2025-05-19');
-const [time, setTime] = useState(availableTimesList.length > 0 ? availableTimesList[0] : '');
-const [guestCount, setGuestCount] = useState(1);
-const [occasion, setOccasion] = useState('Not selected');
+    // Add defensive default in case availableTimes is undefined
+    const availableTimesList = Array.isArray(availableTimes) ? availableTimes : [];
 
-const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Form has been submitted.');
+    const [date, setDate] = useState(new Date());
+    const [time, setTime] = useState(availableTimesList.length > 0 ? availableTimesList[0] : '');
+    const [guestCount, setGuestCount] = useState(1);
+    const [occasion, setOccasion] = useState('Not selected');
 
-    setDate('2025-05-19');
-    setTime(availableTimesList.length > 0 ? availableTimesList[0] : '');
-    setGuestCount(1);
-    setOccasion('Not selected');
-}
+    useEffect(() => {
+        const fetchTimes = async () => {
+            const times = await fetchAPI(date);
+            dispatch({type: 'UPDATE_TIMES', times});
+        };
 
-const handleDateChange = (e) => {
-    setDate(e.target.value);
-    dispatch({type: 'UPDATE_TIMES', date: e.target.value});
-}
+        fetchTimes();
+    },[date, dispatch]);
 
-const handleTimeChange = (e) => {
-    setTime(e.target.value);
-}
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = {
+        date: date instanceof Date ? date.toISOString().split('T')[0] : date,
+        time,
+        guestCount,
+        occasion
+        };
+
+        try {
+        const success = await submitAPI(formData);
+
+        if (success) {
+            alert('Reservation submitted successfully!');
+            // Optionally reset the form
+            setDate(new Date());
+            setTime(availableTimesList.length > 0 ? availableTimesList[0] : '');
+            setGuestCount(1);
+            setOccasion('Not selected');
+        } else {
+            alert('Failed to submit reservation. Please try again.');
+        }
+        } catch (error) {
+        console.error('Submission error:', error);
+        alert('Something went wrong. Please try again.');
+        }
+    };
+
+    const handleDateChange = (e) => {
+        setDate(parseDateFromInput(e.target.value)); // convert string to Date
+    };
+
+    const handleTimeChange = (e) => {
+        setTime(e.target.value);
+    };
 
     return(
         <div className="form-container">
@@ -38,7 +69,7 @@ const handleTimeChange = (e) => {
                 <input
                 type="date"
                 id="res-date"
-                value={date}
+                value={formatDateForInput(date)} // convert Date to string
                 onChange={handleDateChange}
                 />
                 <label htmlFor="res-time">Choose time:</label>
