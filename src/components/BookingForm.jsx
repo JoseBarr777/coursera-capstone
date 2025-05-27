@@ -1,12 +1,12 @@
 import '@styles/BookingForm.css';
 import '@styles/Button.css';
 
-import { fetchAPI, submitAPI } from '@api/api';
+import { fetchAPI } from '@api/api';
 import { formatDateForInput, parseDateFromInput } from '@utils/dateUtils';
 import { useState, useEffect } from 'react';
 
 
-const BookingForm = ({availableTimes, dispatch}) => {
+const BookingForm = ({availableTimes, dispatch, submitForm}) => {
 
     // Add defensive default in case availableTimes is undefined
     const availableTimesList = Array.isArray(availableTimes) ? availableTimes : [];
@@ -29,30 +29,14 @@ const BookingForm = ({availableTimes, dispatch}) => {
         e.preventDefault();
 
         const formData = {
-        date: date instanceof Date ? date.toISOString().split('T')[0] : date,
-        time,
-        guestCount,
-        occasion
+          date: date instanceof Date ? date.toISOString().split('T')[0] : date,
+          time,
+          guestCount,
+          occasion,
         };
 
-        try {
-        const success = await submitAPI(formData);
-
-        if (success) {
-            alert('Reservation submitted successfully!');
-            // Optionally reset the form
-            setDate(new Date());
-            setTime(availableTimesList.length > 0 ? availableTimesList[0] : '');
-            setGuestCount(1);
-            setOccasion('Not selected');
-        } else {
-            alert('Failed to submit reservation. Please try again.');
-        }
-        } catch (error) {
-        console.error('Submission error:', error);
-        alert('Something went wrong. Please try again.');
-        }
-    };
+        await submitForm(formData); // ✅ let parent handle API and navigation
+      };
 
     const handleDateChange = (e) => {
         setDate(parseDateFromInput(e.target.value)); // convert string to Date
