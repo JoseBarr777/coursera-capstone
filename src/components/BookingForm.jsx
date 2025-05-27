@@ -15,6 +15,20 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
     const [time, setTime] = useState(availableTimesList.length > 0 ? availableTimesList[0] : '');
     const [guestCount, setGuestCount] = useState(1);
     const [occasion, setOccasion] = useState('Not selected');
+    const [formValid, setFormValid] = useState(false);
+
+    const validateForm = ({date, time, guestCount, occasion}) => {
+        return(
+            date && time
+            && (guestCount > 0)
+            && (guestCount <= 10)
+            && (occasion !== 'Not selected')
+        );
+    };
+
+    useEffect(() => {
+        setFormValid(validateForm({date, time, guestCount, occasion}));
+    }, [date, time, guestCount, occasion])
 
     useEffect(() => {
         const fetchTimes = async () => {
@@ -90,7 +104,7 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
                     <option value="anniversary">Anniversary</option>
                 </select>
 
-                <button type="submit" className="btn-primary">Make Your Reservation</button>
+                <button type="submit" className="btn-primary" disabled={!formValid}>Make Your Reservation</button>
             </form>
         </div>
     );
