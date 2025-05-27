@@ -55,12 +55,15 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
                 id="res-date"
                 value={formatDateForInput(date)} // convert Date to string
                 onChange={handleDateChange}
+                required
+                min={new Date().toISOString().split('T')[0]}
                 />
                 <label htmlFor="res-time">Choose time:</label>
                 <select
                 id="res-time"
                 value={time}
                 onChange={handleTimeChange}
+                required
                 >
                     {availableTimesList.map((time) => (
                         <option key={time}>{time}</option>
@@ -73,14 +76,16 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
                 id="guests"
                 value={guestCount}
                 onChange={(e) => setGuestCount(parseInt(e.target.value) || 0)}
+                required
                 />
                 <label htmlFor="occasion">Occasion</label>
                 <select
                 id="occasion"
                 value={occasion}
                 onChange={(e) => setOccasion(e.target.value)}
+                required
                 >
-                    <option value="Not selected">Not selected</option>
+                    <option value="Not selected" disabled>Not selected</option>
                     <option value="birthday">Birthday</option>
                     <option value="anniversary">Anniversary</option>
                 </select>
