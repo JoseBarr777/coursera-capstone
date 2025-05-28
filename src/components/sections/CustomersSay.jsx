@@ -5,11 +5,13 @@ import '@styles/CustomerReview.css';
 
 const CustomersSay = () => {
     return (
-        <section className="testimonials-section">
-            <h2>Testimonials</h2>
-            <div className="testimonials-container">
+        <section className="testimonials-section" aria-labelledby="testimonials-heading">
+            <h2 id="testimonials-heading">Testimonials</h2>
+            <div className="testimonials-container" role="list" aria-label="Customer Reviews">
                 {customerReviews.map(review => (
-                    <ReviewCard key={review.id} review={review} />
+                    <div role="listitem" key={review.id}>
+                        <ReviewCard review={review} />
+                    </div>
                 ))}
             </div>
         </section>

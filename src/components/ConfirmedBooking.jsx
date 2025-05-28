@@ -13,11 +13,11 @@ const ConfirmedBooking = () => {
     }, [location]);
 
     return(
-        <div className="confirmation">
+        <main className="confirmation" aria-labelledby="confirmed-heading">
             <ToastContainer position="top-center" />
-            <h1>Booking Confirmed 🎉</h1>
+            <h1 id="confirmed-heading">Booking Confirmed 🎉</h1>
             <p>Thank you for your reservation. See you soon!</p>
-        </div>
+        </main>
     );
 };
 

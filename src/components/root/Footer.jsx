@@ -4,12 +4,13 @@ import Logo from '@assets/Logo .svg';
 
 const Footer = () => {
     return(
-        <footer className="footer">
+        <footer className="footer" aria-label="Footer">
             <div className="footer-container">
                 <div className="footer-logo">
-                    <img src={Logo} alt="Little Lemon" />
+                    <img src={Logo} alt="Little Lemon logo" />
                 </div>
-                <div className="footer-nav">
+
+                <nav className="footer-nav" aria-label="Doormat Navigation">
                     <h3>Doormat Navigation</h3>
                     <ul>
                         <li><Link to="/">Home</Link></li>
@@ -19,16 +20,17 @@ const Footer = () => {
                         <li><Link to="/order-online">Order Online</Link></li>
                         <li><Link to="/login">Login</Link></li>
                     </ul>
-                </div>
+                </nav>
+
                 <div className="footer-contact">
                     <h3>Contact</h3>
                     <address>
-                        <p>123 Restaurant St.</p>
-                        <p>Chicago, IL 60601</p>
-                        <p>555-123-4567</p>
-                        <p><a href="mailto:info@littlelemon.com">info@littlelemon.com</a></p>
+                        <p>123 Restaurant St.<br/>Chicago, IL 60601</p>
+                        <p>Phone: <a href="tel:5551234567">555-123-4567</a></p>
+                        <p>Email: <a href="mailto:info@littlelemon.com">info@littlelemon.com</a></p>
                     </address>
                 </div>
+
                 <div className="footer-social">
                     <h3>Social Media Links</h3>
                     <ul>

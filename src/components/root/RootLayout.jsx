@@ -5,7 +5,7 @@ const RootLayout = ({children}) => {
     return(
         <div className="app-container">
             <Nav />
-            <main  className="main-content">
+            <main className="main-content" role="main" aria-label="Page Content">
                 {children}
             </main>
             <Footer />

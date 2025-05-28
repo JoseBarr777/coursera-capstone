@@ -11,19 +11,17 @@ const CallToAction = () => {
     return(
         <section className="hero" aria-labelledby="hero-heading">
             <div className="hero-content">
-                <h2 id="hero-heading">Little Lemon</h2>
-                <h3>Chicago</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam hendrerit,
-                    felis sed finibus pretium, nisi leo sagittis orci, non cursus sem neque id purus.
-                    Proin neque lorem, rhoncus sed magna a, egestas dapibus lectus.
+                <h1 id="hero-heading">Little Lemon</h1>
+                <h2 className="location-subheading">Chicago</h2>
+                <p className="hero-description">
+                    Experience Mediterranean flavors in the heart of Chicago. Enjoy fresh, chef-crafted dishes in a cozy, welcoming setting.
                 </p>
-                <Link to="/reservations" className="btn-primary" role="button">Reserve a Table</Link>
+                <Link to="/reservations" className="btn-primary" role="button" aria-label="Reserve a table at Little Lemon">Reserve a Table</Link>
             </div>
-            <div className="hero-image">
+            <div className="hero-image" role="img" aria-label="Delicious dish served at Little Lemon">
                 <img
                     src="/src/assets/restauranfood.jpg"
-                    alt="Featured dish from Little Lemon restaurant"
+                    alt="A plated Mediterranean dish with greens and lemon at Little Lemon"
                 />
             </div>
         </section>

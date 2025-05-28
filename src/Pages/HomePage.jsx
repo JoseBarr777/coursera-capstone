@@ -5,12 +5,12 @@ import About from '@components/sections/About';
 
 function HomePage() {
   return (
-    <>
-    <CallToAction />
-    <Specials />
-    <CustomersSay />
-    <About />
-    </>
+    <div className="homepage" role="region" aria-label="Homepage Content">
+      <CallToAction />
+      <Specials />
+      <CustomersSay />
+      <About />
+    </div>
   );
 };
 

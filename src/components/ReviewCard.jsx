@@ -31,7 +31,7 @@ const ReviewCard = ({ review }) => {
                     <p className="name">{name}</p>
                 </div>
             </div>
-            <p className="review-text">{reviewText}</p>
+            <blockquote className="review-text">{reviewText}</blockquote>
         </div>
     );
 };
