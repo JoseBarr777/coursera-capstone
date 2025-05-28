@@ -75,3 +75,14 @@
     padding-bottom: 1rem;
   }
 }
+
+.error-text {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+input.invalid, select.invalid {
+    border: 2px solid red;
+    transition: border-color 0.3s ease;
+  }

@@ -4,6 +4,7 @@ import '@styles/Button.css';
 import { fetchAPI } from '@api/api';
 import { formatDateForInput, parseDateFromInput } from '@utils/dateUtils';
 import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const BookingForm = ({availableTimes, dispatch, submitForm}) => {
@@ -42,14 +43,26 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const formData = {
-          date: date instanceof Date ? date.toISOString().split('T')[0] : date,
-          time,
-          guestCount,
-          occasion,
-        };
+        if (!formValid) {
+            toast.error("Form is invalid. Please check your inputs.");
+            return;
+        }
 
-        await submitForm(formData); // ✅ let parent handle API and navigation
+        try{
+            const formData = {
+              date: date instanceof Date ? date.toISOString().split('T')[0] : date,
+              time,
+              guestCount,
+              occasion,
+            };
+
+            await submitForm(formData); // ✅ let parent handle API and navigation
+            toast.success("Reservation submitted successfully!");
+        }
+        catch (error){
+            toast.error("Submission Failed. Please try again.");
+        }
+
       };
 
     const handleDateChange = (e) => {
@@ -62,6 +75,7 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
 
     return(
         <div className="form-container">
+            <ToastContainer position="top-center" />
             <form onSubmit={handleSubmit} className='form'>
                 <label htmlFor="res-date">Choose date</label>
                 <input
@@ -85,6 +99,7 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
                 </select>
                 <label htmlFor="guests">Number of guests</label>
                 <input
+                className={!formValid && guestCount < 1 ? 'invalid' : ''}
                 type="number"
                 min="1" max="10"
                 id="guests"
@@ -103,6 +118,10 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
                     <option value="birthday">Birthday</option>
                     <option value="anniversary">Anniversary</option>
                 </select>
+                {occasion === 'Not selected' ? (
+                <span className="error-text">Please select a valid occasion.</span>
+                ) : null}
+
 
                 <button type="submit" className="btn-primary" disabled={!formValid}>Make Your Reservation</button>
             </form>
