@@ -18,7 +18,9 @@ function App() {
     const success = await(submitAPI(formData));
 
     if (success) {
-      navigate('/confirmed');
+      navigate('/confirmed', {
+        state: {successMessage: "Reservation submitted successfully!"}
+      });
     }
   }
 

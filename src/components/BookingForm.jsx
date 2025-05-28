@@ -6,7 +6,6 @@ import { formatDateForInput, parseDateFromInput } from '@utils/dateUtils';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
-
 const BookingForm = ({availableTimes, dispatch, submitForm}) => {
 
     // Add defensive default in case availableTimes is undefined
@@ -47,8 +46,6 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
             toast.error("Form is invalid. Please check your inputs.");
             return;
         }
-
-        try{
             const formData = {
               date: date instanceof Date ? date.toISOString().split('T')[0] : date,
               time,
@@ -57,12 +54,6 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
             };
 
             await submitForm(formData); // ✅ let parent handle API and navigation
-            toast.success("Reservation submitted successfully!");
-        }
-        catch (error){
-            toast.error("Submission Failed. Please try again.");
-        }
-
       };
 
     const handleDateChange = (e) => {
@@ -75,7 +66,7 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
 
     return(
         <div className="form-container">
-            <ToastContainer position="top-center" />
+            <ToastContainer position="top-center"/>
             <form onSubmit={handleSubmit} className='form'>
                 <label htmlFor="res-date">Choose date</label>
                 <input
