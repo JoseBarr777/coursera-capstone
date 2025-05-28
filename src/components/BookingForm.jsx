@@ -2,6 +2,7 @@ import '@styles/BookingForm.css';
 import '@styles/Button.css';
 
 import { fetchAPI } from '@api/api';
+import { validateForm } from '@utils/validation';
 import { formatDateForInput, parseDateFromInput } from '@utils/dateUtils';
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -16,15 +17,6 @@ const BookingForm = ({availableTimes, dispatch, submitForm}) => {
     const [guestCount, setGuestCount] = useState(1);
     const [occasion, setOccasion] = useState('Not selected');
     const [formValid, setFormValid] = useState(false);
-
-    const validateForm = ({date, time, guestCount, occasion}) => {
-        return(
-            date && time
-            && (guestCount > 0)
-            && (guestCount <= 10)
-            && (occasion !== 'Not selected')
-        );
-    };
 
     useEffect(() => {
         setFormValid(validateForm({date, time, guestCount, occasion}));
